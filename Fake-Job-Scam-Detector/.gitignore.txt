@@ -1,0 +1,9 @@
+# Periya Dataset Files-a Block Panna
+*.csv
+jobs - Copy (2).csv
+
+# Virtual Environment & Python Temp Files
+__pycache__/
+*.pyc
+venv/
+.env
