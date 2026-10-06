@@ -15,13 +15,15 @@ import os
 import string
 import joblib
 import numpy as np
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 
 # ── App Setup ────────────────────────────────────────────
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../frontend", template_folder="../frontend")
 CORS(app)   # Allow frontend (different port) to call this API
-
+@app.route('/')
+def home():
+    return render_template('index.html')
 # ── Paths ────────────────────────────────────────────────
 BASE_DIR       = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH     = os.path.join(BASE_DIR, "model.pkl")
